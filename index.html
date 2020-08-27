@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>HDCF Bank</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<style>
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+}
+</style>
+</head>
+<body>
+ <div class="login">
+	<h1>HDCF Loan Portal </h1>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="Gender" placeholder="Gender" required="required" />
+        <input type="text" name="Married" placeholder="Married" required="required" />
+		<input type="text" name="Dependents" placeholder="Dependents" required="required" />
+		<input type="text" name="Education" placeholder="Education" required="required" />
+        <input type="text" name="Self_Employed" placeholder="Self_Employed" required="required" />
+		<input type="text" name="ApplicantIncome" placeholder="ApplicantIncome" required="required" />
+		<input type="text" name="CoapplicantIncome" placeholder="CoapplicantIncome" required="required" />
+		<input type="text" name="LoanAmount" placeholder="LoanAmount" required="required" />
+		<input type="text" name="Loan_Amount_Term" placeholder="Loan_Amount_Term" required="required" />
+        <input type="text" name="Credit_History" placeholder="Credit_History" required="required" />
+		<input type="text" name="Property_Area" placeholder="Property_Area" required="required" />
+		<!--<input type="text" name="Is_start_of_semester" placeholder="Is_start_of_semester" required="required" />
+		<input type="text" name="Is_during_semester" placeholder="Is_during_semester" required="required" /> -->
+		
+	
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+ <div>
+	<h1>Try Once again!</h1>
+	
+	
+ </div>
+
+</body>
+</html>
